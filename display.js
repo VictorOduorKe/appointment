@@ -1,20 +1,22 @@
 const display = document.getElementById("display_area");
 
+
 const displayData = () => {
     if (!display) {
         console.error("Element with id 'display_area' not found.");
         return; 
     }
 
-    
     const storedData = JSON.parse(localStorage.getItem("Appointments")) || [];
- 
+
+  
+    display.innerHTML = ""; 
+
     if (storedData.length > 0) {
-      
         storedData.forEach((data, index) => {
             const div = document.createElement("div");
             div.classList.add("card");
-            div.setAttribute("key", index);
+            div.setAttribute("data-key", index); 
             div.innerHTML = `
                 <span>Name: ${data.name}</span><br>
                 <span>Date: ${data.date}</span><br>
@@ -34,21 +36,20 @@ const displayData = () => {
 
 const deleteAppointment = (e) => {
     if (e.target.classList.contains("deletebtn")) {
-        const index = e.target.getAttribute("data-index"); 
+        const index = e.target.getAttribute("data-index");
         const storedData = JSON.parse(localStorage.getItem("Appointments")) || [];
-        
+   
         storedData.splice(index, 1);
 
+       
         localStorage.setItem("Appointments", JSON.stringify(storedData));
 
+        
         const card = e.target.closest(".card");
         card.remove();
-
-        displayData();
     }
 };
 
-
-document.querySelector("#display_area").addEventListener("click",deleteAppointment);
+document.querySelector("#display_area").addEventListener("click", deleteAppointment);
 
 document.addEventListener("DOMContentLoaded", displayData);
