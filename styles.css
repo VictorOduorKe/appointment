@@ -1,0 +1,87 @@
+.deletebtn{
+    background:red;
+    padding:10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    background:gray;
+    padding:10px;
+}
+.display_area{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:10px;
+}
+.card:nth-child(odd){
+    background:green;
+    color:white;
+}
+
+header{
+    background:black;
+    color:white;
+    display: flex;
+    align-items: flex-end;
+    justify-content:center;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+header nav{
+    display: flex;
+    align-items: flex-end;
+}
+header nav ul{
+    display: flex;
+    gap:10px;
+    padding:10px;
+    list-style: none;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin:10px auto;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+}
+form .card_one input{
+    padding:10px;
+}
+form .card_one{
+    box-shadow: 0 0 4px black;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding:10px;
+    margin: 10px auto;
+    width: 70%;
+}
+#form .card_one button[type=submit]{
+    background:blue;
+    padding:10px;
+    display: flex;
+    align-self: center;
+    margin: 10px auto;
+    border:0;
+    outline:0;
+    text-align: center;
+    font-size: 18px;
+    color:white;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition:all 0.4s ease-in-out;
+}
+form .card_one button[type=submit]:hover{
+    background: blueviolet;
+}
